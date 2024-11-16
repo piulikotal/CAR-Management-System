@@ -44,7 +44,7 @@ def createproduct_post():
     id = request.form.get("id")
     user_id = request.form.get("user_id")
     title = request.form.get("title")
-    description = request.form.get("description")
+    description = request.form.get("descriptions")
     tags = request.form.get("tags")
     images = request.files.getlist("images")
 
@@ -57,7 +57,7 @@ def createproduct_post():
 
     try:
         cursor.execute(
-            "INSERT INTO product_details_new (id, user_id, title, descriptions, tags, image) VALUES (%s, %s, %s, %s, %s, %s)",
+            "INSERT INTO product_details_new (id, user_id, title, descriptions, tags, images) VALUES (%s, %s, %s, %s, %s, %s)",
             (id, user_id, title, description, tags, ','.join(image_paths))
         )
         db.commit()
@@ -81,13 +81,13 @@ def edit_car(car_id):
     if request.method == "POST":
         # Get the updated description and tags from the form
         title = request.form.get("title")
-        description = request.form.get("description")
+        description = request.form.get("descriptions")
         tags = request.form.get("tags")
 
         try:
             # Update only the title, description, and tags in the database
             cursor.execute(
-                "UPDATE product_details_new SET title = %s, description = %s, tags = %s WHERE id = %s",
+                "UPDATE product_details_new SET title = %s, descriptions = %s, tags = %s WHERE id = %s",
                 (title, description, tags, car_id)
             )
             db.commit()
