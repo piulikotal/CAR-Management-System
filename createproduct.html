@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Car</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/createproduct.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Add a New Car</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form method="POST" action="/createproduct" enctype="multipart/form-data" class="product-form">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+
+                <label for="user_id">user ID:</label>
+                <textarea id="user_id" name="user_id"  required></textarea>
+                
+                <label for="title">Car Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="tags">Tags (e.g.,car type, company, dealer):</label>
+                <input type="text" id="tags" name="tags" required>
+
+                <label for="images">Upload Images (up to 10):</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple required>
+
+                <button type="submit" class="submit-button">Add Car</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Car Management App</p>
+    </footer>
+</body>
+</html>

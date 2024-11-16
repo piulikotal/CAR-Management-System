@@ -1,0 +1,62 @@
+/* Product Detail Page Styles */
+.car-detail-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-detail-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.car-detail-card p {
+    margin: 10px 0;
+}
+
+.car-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.car-image {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-button {
+    background-color: #4a4a8a;
+}
+
+.edit-button:hover {
+    background-color: #3a3a7a;
+}
+
+.delete-button {
+    background-color: #e63946;
+}
+
+.delete-button:hover {
+    background-color: #d62828;
+}

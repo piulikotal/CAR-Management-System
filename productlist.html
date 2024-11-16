@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productlist.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Car Details</h1>
+    </header>
+
+    <main>
+        <section class="car-detail-section">
+            <!-- Loop through each car and display details -->
+            {% for car in cars %}
+            <div class="car-detail-card">
+                <h2>{{ car['title'] }}</h2>
+                <p><strong>Description:</strong> {{ car['description'] }}</p>
+                <p><strong>Tags:</strong> {{ car['tags'] }}</p>
+
+                <div class="car-images">
+                    {% if car['images'] %}
+                        <!-- Display car images if available -->
+                        {% for image in car['images'].split(',') %}
+                        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Car Image" class="car-image">
+                        {% endfor %}
+                    {% else %}
+                        <p>No images available</p>
+                    {% endif %}
+                </div>
+
+                <div class="action-buttons">
+                    <!-- Edit button - redirects to edit page for that car -->
+                    <a href="{{ url_for('edit_car', car_id=car['id']) }}" class="edit-button">Edit</a>
+                    <!-- Delete form -->
+                    <form action="{{ url_for('delete_car', car_id=car['id']) }}" method="POST" class="delete-form">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Car Management App</p>
+    </footer>
+</body>
+</html>

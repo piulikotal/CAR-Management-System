@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #add8e6; /* Light blue background */
+    /* Remove or comment out the background image line */
+    /* background: url('../assets/Library logo 1.jpg') no-repeat center center fixed; */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background for the form */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group input::placeholder {
+    color: #888;
+}
+
+.form-group input[type="submit"] {
+    background-color: rgba(47, 37, 158, 0.733);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: hsl(233, 88%, 24%);
+    transform: scale(1.05);
+}
+
+.form-group input[type="submit"]:active {
+    background-color: #0056b3;
+    transform: scale(1);
+}
+
+form hr {
+    margin: 20px 0;
+    border-top: 1px solid #ccc;
+}
+
+.form-group p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-group a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-group a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

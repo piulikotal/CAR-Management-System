@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Car Management Dashboard</h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/signup"><i class="fa fa-user"></i> Signup</a></li>
+                    <li><a href="/createproduct"><i class="fa fa-plus"></i> Create Product</a></li>
+                    <li><a href="/productlist"><i class="fa fa-list"></i> Product List</a></li>
+                    <li><a href="/productdetail"><i class="fa fa-info-circle"></i> Product Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for cars by title, description, or tags...">
+            <button onclick="searchCars()">Search</button>
+        </section>
+
+        <section class="car-list">
+            <h2>Your Cars</h2>
+            <div class="car-item">
+                <img src="../static/assets/Toyota.jpeg" alt="Car Image">
+                <div class="car-details">
+                    <h3>Car Title</h3>
+                    <p>Description of the car...</p>
+                    <p><strong>Tags:</strong> tag1, tag2, tag3</p>
+                    <a href="/car_detail/1" class="btn">View Details</a>
+                </div>
+            </div>
+            <!-- Repeat car-item for each car -->
+        </section>
+    </main>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>

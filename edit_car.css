@@ -1,0 +1,162 @@
+/* edit_car.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.form-container label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-container input[type="text"],
+.form-container input[type="file"],
+.form-container textarea,
+.form-container input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;  /* Reduced margin */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    max-width: 600px;  /* Control input width */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Image preview styling */
+.image-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Flash message styling */
+.flash-message {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.flash-message.success {
+    color: #4CAF50;
+}
+
+.flash-message.error {
+    color: #f44336;
+}
+
+/* Back button styling */
+.back-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive form alignment */
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea,
+    .form-container input[type="submit"] {
+        width: 100%;
+    }
+}
+/* edit_car.css */
+
+/* Rest of your previous CSS code here */
+
+.delete-btn {
+    display: inline-block;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}

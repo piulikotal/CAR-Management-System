@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+</head>
+<body>
+
+    <h1>Car Details</h1>
+
+    {% if car %}
+        <!-- Display details for a single car -->
+        <h2>{{ car.title }}</h2>
+        <p><strong>Description:</strong> {{ car.description }}</p>
+        <p><strong>Tags:</strong> {{ car.tags }}</p>
+        
+        <!-- Display car images -->
+        {% if car.images %}
+            <h3>Images:</h3>
+            <div>
+                {% for image in car.images.split(',') %}
+                    <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="{{ car.title }}" width="300">
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+    {% elif cars %}
+        <!-- Display list of cars -->
+        <h2>All Cars</h2>
+        <ul>
+            {% for car in cars %}
+                <li>
+                    <a href="{{ url_for('productdetail', car_id=car.id) }}">{{ car.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <!-- No cars available -->
+        <p>No cars found.</p>
+    {% endif %}
+
+</body>
+</html>
