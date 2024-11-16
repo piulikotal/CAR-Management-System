@@ -2,42 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Car</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_car.css') }}">
+    <title>Edit Car Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Edit Car Details</h1>
-        <div class="flash-message {% if flash_message %}{{ flash_message.type }}{% endif %}">
-            {% if flash_message %}
-                {{ flash_message.message }}
-            {% endif %}
-        </div>
+    </header>
 
-        <form method="POST" enctype="multipart/form-data">
-            <div class="form-container">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" value="{{ car['title'] }}" required>
-        
-                <label for="description">Description</label>
-                <textarea id="description" name="descriptions" required>{{ car['description'] }}</textarea>
-        
-                <label for="tags">Tags</label>
-                <input type="text" id="tags" name="tags" value="{{ car['tags'] }}" required>
+    <main>
+        <section class="edit-car-section">
+            <form action="{{ url_for('edit_car', car_id=car['id']) }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" value="{{ car['title'] }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="descriptions" required>{{ car['description'] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags:</label>
+                    <input type="text" id="tags" name="tags" value="{{ car['tags'] }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="images">Upload New Images:</label>
+                    <input type="file" id="images" name="images" multiple>
+                </div>
 
-                <input type="submit" value="Update Car">
-                
-            </div>
-        </form>
-        
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Update Car</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
-        <a href="{{ url_for('productlist') }}" class="back-btn">Back to Product List</a>
-
-        <!-- Delete Button -->
-        <form method="POST" action="{{ url_for('delete_car', car_id=car['id']) }}">
-            <input type="submit" value="Delete Car" class="delete-btn" onclick="return confirm('Are you sure you want to delete this car?');">
-        </form>
-    </div>
+    <footer>
+        <p>&copy; 2024 My Car Management App</p>
+    </footer>
 </body>
 </html>
