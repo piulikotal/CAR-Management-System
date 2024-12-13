@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Car with Image Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/merge.css') }}">
+   
+</head>
+<body>
+    <header>
+        <h1>Create a New Car with Image Upload</h1>
+    </header>
+
+    <main>
+ <!-- Form to create a new car -->
+  
+        <form method="POST" action="/merge" enctype="multipart/form-data">
+            <label for="id">Car ID:</label>
+            <input type="text" name="id" id="id" required><br>
+    
+            <label for="user_id">User ID:</label>
+            <input type="text" name="user_id" id="user_id" required><br>
+    
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required><br>
+    
+            <label for="descriptions">Descriptions:</label>
+            <textarea name="descriptions" id="descriptions" required></textarea><br>
+    
+            <label for="tags">Tags:</label>
+            <input type="text" name="tags" id="tags" required><br>
+    
+            <label for="image">Upload Images:</label>
+            <input type="file" name="image" id="image" multiple><br>
+    
+            <button type="submit">Add Car</button>
+        </form>
+
+        <!-- Container to display the uploaded image -->
+        <div class="image-container">
+            <h2>Latest Uploaded Image:</h2>
+            <img id="imagePreview" src="" alt="Image will be displayed here.">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Car Management App</p>
+    </footer>
+
+    <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const formData = new FormData(event.target); // Collect form data
+
+    // Send data to the server
+    fetch('/merge', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json(); // Handle JSON response for messages
+        } else {
+            throw new Error('Failed to create product');
+        }
+    })
+    .then(data => {
+        alert(data.message || 'Product created successfully!');
+        fetchLatestImage(); // Fetch and display the latest uploaded image
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error creating product');
+    });
+});
+
+// Function to fetch and display the latest uploaded image
+function fetchLatestImage() {
+    fetch('/last_uploaded_image')
+        .then(response => {
+            if (response.ok) {
+                return response.blob();
+            } else {
+                throw new Error('Failed to fetch image');
+            }
+        })
+        .then(imageBlob => {
+            const imageUrl = URL.createObjectURL(imageBlob);
+            document.getElementById('imagePreview').src = imageUrl;
+        })
+        .catch(error => {
+            console.error('Error fetching the latest image:', error);
+    });
+}
+
+// Call fetchLatestImage to display the latest image when the page loads
+window.onload = fetchLatestImage;
+
+    </script>
+</body>
+</html>
