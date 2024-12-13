@@ -12,28 +12,112 @@
 <body>
     <header>
         <div class="header-container">
+            <img src="/static/assets/carlogo.avif" alt="Logo" class="logo">
             <h1>Car Management Dashboard</h1>
             <nav class="navbar">
                 <ul>
                     <li><a href="/signup"><i class="fa fa-user"></i> Signup</a></li>
-                    <li><a href="/createproduct"><i class="fa fa-plus"></i> Create Product</a></li>
+                    <!--<li><a href="/createproduct"><i class="fa fa-plus"></i> Create Product</a></li>-->
+                    <li><a href="/merge"><i class="fa fa-plus"></i> Create Product </a></li>
                     <li><a href="/productlist"><i class="fa fa-list"></i> Product List</a></li>
                     <li><a href="/productdetail"><i class="fa fa-info-circle"></i> Product Detail</a></li>
+                    
+
                 </ul>
             </nav>
+          
         </div>
+
+      
     </header>
 
     <main>
+        <!-- Search Bar -->
         <section class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for cars by title, description, or tags...">
-            <button onclick="searchCars()">Search</button>
+            <section class="search_query">
+            <form method="POST" action="/search">
+                <input type="text" name="search_query" placeholder="Enter title, description, or tag" required>
+                <input type="submit" value="Search">
+            </form>
+            </section>
         </section>
 
-        <section class="car-list">
+
+        <title>Homepage with Car Advertisements</title>
+        <style>
+            .advertisement-container {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-top: 30px;
+            }
+            .advertisement-container img {
+                width: 200px;
+                height: auto;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                transition: transform 0.3s;
+            }
+            .advertisement-container img:hover {
+                transform: scale(1.1);
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+
+
+        <h1>Most Solded Cars</h1>
+        <div class="advertisement-container" id="adContainer">
+            <!-- Car images will be dynamically loaded here -->
+        </div>
+    
+        <script>
+            // Fetch and display car advertisements
+            function loadAdvertisements() {
+                fetch('/advertisements')
+                .then(response => response.json())
+                .then(data => {
+                    const adContainer = document.getElementById('adContainer');
+                    data.forEach(ad => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = ad.url; // Image URL fetched from the backend
+                        imgElement.alt = ad.name; // Car name or a placeholder
+                        adContainer.appendChild(imgElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching advertisements:', error);
+                });
+            }
+    
+            // Load advertisements when the page loads
+            window.onload = loadAdvertisements;
+        </script>
+
+
+<div class="body-background">
+    <!-- Footer content goes here -->
+    <p>Content</p>
+
+    <form class="discountForm">
+ 
+        <span class="DiscountHeading">TAKE 10% OFF.</span>
+        <p class="DiscountSubheading">Here is your discount! The promo code will be sent to your email.</p>
+        <div class="inputContainer">
+          <input placeholder="Enter your email" type="email" name="email" id="email-address">
+          <button type="submit" class="submitButton">Get it!</button>
+        </div>
+           <button class="exitBtn"> ×</button>
+      </form>
+</div>
+
+<!--   <section class="car-list">
             <h2>Your Cars</h2>
             <div class="car-item">
-                <img src="../static/assets/Toyota.jpeg" alt="Car Image">
+               <img src="../static/assets/Toyota.jpeg" alt="Car Image">
                 <div class="car-details">
                     <h3>Car Title</h3>
                     <p>Description of the car...</p>
@@ -41,10 +125,68 @@
                     <a href="/car_detail/1" class="btn">View Details</a>
                 </div>
             </div>
-            <!-- Repeat car-item for each car -->
-        </section>
+            
+        </section> -->
+  <!-- Repeat car-item for each car -->
     </main>
 
-    <script src="static/js/script.js"></script>
+   
+    
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About</h3>
+            <p>Car Management is your one-stop solution for managing, buying, and selling cars seamlessly.</p>
+                <p><a href="#">Career With Us</a>
+                  <p><a href="#">Privacy  Policie</a></p>
+                  <p> <a href="#">Trade With Us</a>
+                </p>
+                
+            
+            
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Phone: +1-234-567-890</p>
+            <p>Email: info@carmanagement.com</p>
+
+        <div class="footer-section star-review">
+            <h3>Rate Us</h3>
+                <p>
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Social Media</h3>
+            <p>
+                <a href="https://www.facebook.com/nitmasitme144/" alt="Facebook" class="fa fa-facebook"></a>
+                <a href="https://www.facebook.com/nitmasitme144/" alt="Twitter" class="fa fa-twitter"></a>
+                <a href="https://www.facebook.com/nitmasitme144/" alt="Instagram" class="fa fa-instagram"></a>
+                <a href="https://www.facebook.com/nitmasitme144/" alt="LinkedIn" class="fa fa-linkedin"></a>
+            </p>
+        </div>
+        <div class="footer-section">
+            <h3>FAQ</h3>
+            <p><a href="#">How it works?</a></p>
+            <p><a href="#">Terms and Conditions</a></p>
+        </div>
+        <div class="footer-section">
+            <h3>Who We Are</h3>
+            <p>We are a dedicated team of professionals providing car management solutions for everyone.
+                Our goal is for the country to trust our method, believe in and enjoy our cars. In this way we aim to propel a billion dreams.</p>
+        </div>
+       
+    </div>
+    <div class="footer-bottom">
+        <h3><p>&copy; 2024 Car Management. All rights reserved.</p></h3>
+       
+    </div>
+</footer>
 </html>
