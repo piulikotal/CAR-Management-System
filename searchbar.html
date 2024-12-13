@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Cars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8BC6EC;
+            background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 50%, #ffffff 81%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 50%, #ffffff 100%);
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0e0f0f;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 80%;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: #2BD2FF;
+            background-image: linear-gradient(45deg, #2BD2FF 16%, #2BFF88 59%);
+
+
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #62a7a5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #80D0C7;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Cars</h1>
+        <form method="POST" action="/search">
+            <input type="text" name="search_query" placeholder="Enter title, description, or tag" required>
+            <input type="submit" value="Search">
+        </form>
+
+        {% if cars %}
+        <table>
+            <tr>
+                <th>SL No</th>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car[1] }}</td> <!-- Assuming car[1] is the title -->
+                <td>{{ car[2] }}</td> <!-- Assuming car[2] is the description -->
+                <td>{{ car[3] }}</td> <!-- Assuming car[3] is the tags -->
+                <td>{{ car[4] }}</td> <!-- Assuming car[4] is the user_id -->
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No results found for your search query.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
