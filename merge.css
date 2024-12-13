@@ -1,0 +1,126 @@
+/* General reset and font */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(88deg, #8BC6EC 26%, #9599E2 55%);
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+header {
+    background-color: #21D4FD;
+background-image: linear-gradient(176deg, #21D4FD 0%, #B721FF 100%);
+
+    color: white;
+    padding: 0.1rem;
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #0056b3;
+}
+
+/* Main section styling */
+main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #08AEEA;
+background-image: linear-gradient(0deg, #08AEEA 41%, #b4bef5 96%);
+
+
+    
+
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, 
+form textarea, 
+form button {
+    width: 98%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Image preview container */
+.image-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.image-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    background-color: #21D4FD;
+background-image: linear-gradient(176deg, #21D4FD 0%, #B721FF 100%);
+
+    color: white;
+    padding: 0.1rem;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    border-top: 2px solid #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    main {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    form button {
+        font-size: 0.9rem;
+    }
+
+    .image-container h2 {
+        font-size: 1.2rem;
+    }
+}
