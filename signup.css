@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #add8e6; /* Light blue background */
-    /* Remove or comment out the background image line */
-    /* background: url('../assets/Library logo 1.jpg') no-repeat center center fixed; */
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 99%);
+
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -11,7 +11,10 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background for the form */
+    /*background-color: rgba(255, 255, 255, 0.8); /* Transparent white background for the form */ 
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 71%, #ffffff 100%);
+
     border-radius: 8px;
     padding: 20px;
     max-width: 500px;
@@ -30,7 +33,7 @@ h1 {
 }
 
 .form-group input {
-    width: 100%;
+    width: 95.5%;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
